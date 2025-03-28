@@ -62,4 +62,11 @@ public class List {
         }
         return null;
     }
+    /**
+     * getHead
+     * @return head of list
+     */
+    public Node getHead() {
+        return head;
+    }
 }
