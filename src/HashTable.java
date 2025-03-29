@@ -74,8 +74,10 @@ public class HashTable {
     public void show(){
         System.out.println("HashTable");
         for(int i=0; i<buckets.length; i++) {
-            System.out.println("Bucket " + i + ":");
-            showBucket(buckets[i]);
+            if(getHead(buckets[i]) != null) {//only print not empty buckets
+                System.out.println("Bucket " + i + ":");
+                showBucket(buckets[i]);
+            }
         }
     }
 
@@ -126,7 +128,7 @@ public class HashTable {
     public void showBucket(List bucket){
         Node current = getHead(bucket);
         while (current != null) {
-            System.out.println(current.getPlayer()+ "\n");
+            System.out.println("["+ current.getPlayer()+ "] -->");
             current = current.getNext();
         }
         System.out.println("Null");
