@@ -67,6 +67,18 @@ public class HashTable {
         return null;
     }
 
+    /**
+     * show
+     * Prints out the hashTable by bucket
+     */
+    public void show(){
+        System.out.println("HashTable");
+        for(int i=0; i<buckets.length; i++) {
+            System.out.println("Bucket " + i + ":");
+            showBucket(buckets[i]);
+        }
+    }
+
 
     /**
      * resize
@@ -103,8 +115,8 @@ public class HashTable {
      * @return int index
      */
     public int getIndex(Player p){
-            int hash = p.hashCode();ß
-            return hash % buckets.length;
+            int hash = p.hashCode();
+            return Math.abs(hash% buckets.length);
     }
 
     /**
