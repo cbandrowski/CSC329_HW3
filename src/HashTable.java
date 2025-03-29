@@ -128,7 +128,7 @@ public class HashTable {
     public void showBucket(List bucket){
         Node current = getHead(bucket);
         while (current != null) {
-            System.out.println("["+ current.getPlayer()+ "] -->");
+            System.out.println("["+ current.getPlayer()+ "] ->");
             current = current.getNext();
         }
         System.out.println("Null");

@@ -19,12 +19,21 @@ public class List {
      * @param other list to copy
      */
     public List(List other) {
-        if(other.head == null) {
+        if(other.head == null || other == null) {
             this.head = null;
+            return;
         }
+        Node otherCurrent = other.head;
         this.head = new Node(other.head.getPlayer().createClone());
         Node current = this.head;
-        Node otherCurrent = other.head.getNext();
+        otherCurrent = other.head.getNext();
+
+        while(otherCurrent != null) {
+            Player clonedPlayer = otherCurrent.getPlayer().createClone();
+            current.setNext(new Node(clonedPlayer));
+            current = current.getNext();
+            otherCurrent = otherCurrent.getNext();
+        }
     }
 
     /**
