@@ -49,7 +49,7 @@ public class HashTable {
         if((double)(size + 1)/ buckets.length > loadFactor){
             resize();
         }
-        int index = getIndex(p);
+        int index = getIndex(p);//getIndex uses hash function
         buckets[index].add(p);
         size++;
     }
@@ -118,7 +118,7 @@ public class HashTable {
      */
     public int getIndex(Player p){
             int hash = p.hashCode();
-            return Math.abs(hash% buckets.length);
+            return Math.abs(hash% buckets.length);//abs is used for non-negatives
     }
 
     /**
